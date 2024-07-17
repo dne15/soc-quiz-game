@@ -21,11 +21,9 @@ h1 {
     margin: 0;
 }
 
-main {
-    background-color: cadetblue;
-}
 
 .container {
+    background-color: cadetblue;
     display: grid;
     grid-template-rows: 1fr 3em;
     margin-top: 2em;
