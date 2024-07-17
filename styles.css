@@ -39,12 +39,16 @@ h1 {
 
 .quiz-main {
     background-color: cadetblue;
-    display: grid;
-    grid-template-rows: 1fr 4rem;
     margin-top: 1rem;
     padding-bottom: 2rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
 
 label {
@@ -84,11 +88,11 @@ h3 {
 }
 
 .answerOptions {
+    display: grid;
+    grid-template-rows: 1fr 4rem;
     margin: 1rem;
     font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+    height: 100%;
 }
 
 h2 {
@@ -101,7 +105,8 @@ p {
     font-size: .8rem;
 }
 
-.correct, .fail {
+.correct,
+.fail {
     display: flex;
     flex-direction: column;
     align-self: center;
