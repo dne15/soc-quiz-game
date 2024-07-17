@@ -28,6 +28,8 @@ header {
     align-items: center;
     justify-content: center;
     background-color: cadetblue;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 h1 {
@@ -41,6 +43,8 @@ h1 {
     grid-template-rows: 1fr 4rem;
     margin-top: 2rem;
     padding-bottom: 2rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 label {
