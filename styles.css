@@ -7,6 +7,7 @@ body {
 .wrapper {
     display: grid;
     grid-template-rows: 3em 1fr;
+    height: 100vh;
 }
 
 header {
@@ -21,10 +22,11 @@ h1 {
 }
 
 main {
+    background-color: cadetblue;
+}
+
+.container {
     display: grid;
     grid-template-rows: 1fr 3em;
-    margin: 20px;
-    background-color: cadetblue;
-    height: 150px;
-    text-align: center;
+    margin-top: 2em;
 }
