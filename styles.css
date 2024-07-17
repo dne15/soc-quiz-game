@@ -1,18 +1,20 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: "Bodoni Moda SC", serif;
 }
 
 body {
     background-color: rgb(50, 48, 48);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
     color: bisque;
 }
 
 .wrapper {
     display: grid;
-    grid-template-rows: 3rem 1fr;
+    grid-template-rows: 5rem 1fr;
     height: 100vh;
     padding: 1rem;
 }
@@ -26,12 +28,13 @@ header {
 
 h1 {
     margin: 0;
+    font-size: 2.5rem;
 }
 
 .quiz-main {
     background-color: cadetblue;
     display: grid;
-    grid-template-rows: 1fr 3rem;
+    grid-template-rows: 1fr 5rem;
     margin-top: 2rem;
 
 }
@@ -39,8 +42,8 @@ h1 {
 label {
     display: block;
     margin: 1rem 0;
-    font-size: 1rem;
-    background-color: #fe906e;
+    font-size: 2rem;
+    background-color: bisque;
     padding: 1rem;
     border-radius: 1rem;
     color: rgb(50, 48, 48);
@@ -64,12 +67,20 @@ button {
     width: 60%;
     justify-self: center;
     font-weight: 700;
+    font-size: 2rem;
     color: rgb(50, 48, 48);
+}
+
+h3 {
+    font-size: 3rem;
 }
 
 .answerOptions {
     margin: 1rem;
-    font-size: 1.2rem;   
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
 
 
