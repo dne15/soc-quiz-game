@@ -1,12 +1,18 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: rgb(50, 48, 48);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 10px;
     color: bisque;
 }
 
 .wrapper {
     display: grid;
-    grid-template-rows: 3em 1fr;
+    grid-template-rows: 3rem 1fr;
     height: 100vh;
 }
 
@@ -24,7 +30,17 @@ h1 {
 .quiz-main {
     background-color: cadetblue;
     display: grid;
-    grid-template-rows: 1fr 3em;
-    margin-top: 2em;
+    grid-template-rows: 1fr 3rem;
+    margin-top: 2rem;
 }
 
+label {
+    display: block;
+}
+
+button {
+    background-color: #fe906e;
+    border: none;
+    border-radius: 2rem;
+    margin: 0.5rem;
+}
