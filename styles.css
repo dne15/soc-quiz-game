@@ -21,6 +21,8 @@ h1 {
 }
 
 main {
+    display: grid;
+    grid-template-rows: 1fr 3em;
     margin: 20px;
     background-color: cadetblue;
     height: 150px;
