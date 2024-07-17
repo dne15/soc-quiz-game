@@ -101,7 +101,7 @@ p {
     font-size: .8rem;
 }
 
-.correct {
+.correct, .fail {
     display: flex;
     flex-direction: column;
     align-self: center;
