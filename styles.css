@@ -12,6 +12,10 @@ body {
     color: bisque;
 }
 
+.hide {
+    display: none;
+}
+
 .wrapper {
     display: grid;
     grid-template-rows: 4rem 1fr;
