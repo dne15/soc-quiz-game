@@ -46,6 +46,9 @@ quizForm.addEventListener("submit", handleSubmit);
 const quizQuestion = document.querySelector("h3")
 const allQuestions = document.querySelectorAll("input");
 const questionOne = allQuestions[0];
+const questionOneLabel = questionOne.parentElement
+const questionOneText = document.querySelector("span")
+console.log(questionOneLabel)
 
 // select the inputs
 // const
@@ -63,7 +66,13 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
         // Get possible answers from array into form (id, value, name, text)
         // Insert correct answer
         correctAnswer = response.results[0].correct_answer;
+
+        // Update input id to correct answer 
         questionOne.setAttribute("id", correctAnswer);
+        questionOne.setAttribute("value", correctAnswer);
+        questionOneText.innerHTML = (questionOne, correctAnswer);
+        questionOneLabel.setAttribute("for", correctAnswer);
+
     })
 
 //Update correct answer varaible with correct answer from API
