@@ -6,7 +6,7 @@
 // grab quiz for to manipulate answer values
 const quizForm = document.querySelector(".answerForm");
 // hardcode answer to be paris
-const correctAnswer = "berlin";
+let correctAnswer;
 // grab question screen
 const questionScreen = document.querySelector(".screen-question")
 // grab correct screen
@@ -42,7 +42,13 @@ function handleSubmit(e) {
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
 
+// select the h3
+const quizQuestion = document.querySelector("h3")
+const allQuestions = document.querySelectorAll("input");
+const questionOne = allQuestions[0];
 
+// select the inputs
+// const
 
 // grab list of questions from the api
 fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple")
@@ -50,16 +56,14 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
         console.log(typeof response);
         return response.json();
     }).then(function (response) {
-
-//Get question from Array into h3
-const quizQuestion = document.querySelector("h3")  
-
-//Isolate each question of API    
-        quizQuestion.innerText = response.results[0].question
+        console.log(response);
+        //Populate quesion screen with data from array 
+        //Get question from Array into h3
+        quizQuestion.innerText = response.results[0].question;
+        // Get possible answers from array into form (id, value, name, text)
+        // Insert correct answer
+        correctAnswer = response.results[0].correct_answer;
+        questionOne.setAttribute("id", correctAnswer);
     })
 
-    //Select first question in array
-    //Populate quesion screen with data from array 
-        
-        // Get possible answers from array into form (id, value, name, text)
-    //Update correct answer varaible with correct answer from API
+//Update correct answer varaible with correct answer from API
