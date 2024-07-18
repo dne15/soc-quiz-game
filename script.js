@@ -14,11 +14,6 @@ const correctScreen = document.querySelector(".screen-correct");
 // grab fail screen
 const failScreen = document.querySelector(".screen-fail");
 
-// API URL
-
-https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
-
-
 function handleSubmit(e) {
     e.preventDefault();
 
@@ -39,10 +34,19 @@ function handleSubmit(e) {
     } else {
         questionScreen.classList.add("hide");
         failScreen.classList.remove("hide");
-    // Display correct answer 
-        failScreen.querySelector(".answerReveal").innerHTML = correctAnswer.toUpperCase(); 
+        // Display correct answer 
+        failScreen.querySelector(".answerReveal").innerHTML = correctAnswer.toUpperCase();
     }
 
 }
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
+
+// grab list of questions from the api
+fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple")
+    .then(function (response) {
+        console.log(typeof response);
+        return response.json();
+    }).then(function (response) {
+        console.log(response);
+    })
