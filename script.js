@@ -4,7 +4,7 @@
 // If incorrect, fail screen shows 
 
 // grab quiz for to manipulate answer values
-const quizForm = document.querySelector(".answerOptions");
+const quizForm = document.querySelector(".answerForm");
 // hardcode answer to be paris
 const correctAnswer = "berlin";
 // grab question screen

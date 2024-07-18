@@ -45,9 +45,10 @@ h1 {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 4em;
     align-self: center;
+    height: 100%;
 }
 
 label {
@@ -102,12 +103,18 @@ h3 {
     font-size: 1.2rem;
 }
 
-.answerOptions {
+.answerForm {
     display: grid;
     grid-template-rows: 1fr 4rem;
     margin: 1rem;
     font-size: 1.2rem;
     height: 100%;
+}
+
+.answerOptions {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
 
 h2 {
