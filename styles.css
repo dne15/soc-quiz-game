@@ -135,3 +135,9 @@ p {
     text-align: center;
     padding: 1rem;
 }
+
+.answerReveal {
+    font-size: 1rem ;
+    margin-top: .5rem;
+    font-weight: 900;
+}

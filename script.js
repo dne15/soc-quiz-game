@@ -14,6 +14,10 @@ const correctScreen = document.querySelector(".screen-correct");
 // grab fail screen
 const failScreen = document.querySelector(".screen-fail");
 
+// API URL
+
+https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
+
 
 function handleSubmit(e) {
     e.preventDefault();
@@ -35,6 +39,8 @@ function handleSubmit(e) {
     } else {
         questionScreen.classList.add("hide");
         failScreen.classList.remove("hide");
+    // Display correct answer 
+        failScreen.querySelector(".answerReveal").innerHTML = correctAnswer.toUpperCase(); 
     }
 
 }
