@@ -1,7 +1,6 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    /* font-family: "Bodoni Moda SC", serif; */
 }
 
 body {
@@ -45,7 +44,7 @@ h1 {
     border-bottom-right-radius: 1rem;
 }
 
-.questions {
+.container {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -59,13 +58,19 @@ label {
     padding: 0.75rem;
     border-radius: 1rem;
     color: rgb(50, 48, 48);
+    cursor: pointer;
+}
+
+label:hover {
+    background-color: #fe906e;
+}
+
+label:checked {
+    background-color: black;
 }
 
 label input {
     margin-right: 1rem;
-}
-
-input[type=radio] {
     border: 0px;
     width: 20px;
     height: 1rem;
@@ -81,6 +86,16 @@ button {
     font-weight: 700;
     font-size: 1rem;
     color: rgb(50, 48, 48);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: bisque;
+}
+
+button:active {
+    background-color: darkblue;
+    color: bisque;
 }
 
 h3 {
