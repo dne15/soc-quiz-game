@@ -8,14 +8,25 @@ const quizForm = document.querySelector(".answerOptions");
 // hardcode answer to be paris
 const correctAnswer = "paris";
 // grab question screen
-const correctScreen = document.querySelector(".screen-correct");
+const questionScreen = document.querySelector(".screen-question")
 // grab correct screen
+const correctScreen = document.querySelector(".screen-correct");
 // grab fail screen
-console.log(quizForm);
+const failScreen = document.querySelector(".screen-fail");
+
+const selectedInput = document.querySelector("input:checked");
+
+// Has answer been selected before pressing submit?
 
 function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+    if (!selectedInput) {
+    alert("You have not selected an answer")
+    return;
+}
+
+    if selectedInput
+
 }
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
