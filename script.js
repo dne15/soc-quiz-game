@@ -56,7 +56,6 @@ console.log(questionOneLabel)
 // grab list of questions from the api
 fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple")
     .then(function (response) {
-        console.log(typeof response);
         return response.json();
     }).then(function (response) {
         console.log(response);
@@ -66,6 +65,8 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
         // Get possible answers from array into form (id, value, name, text)
         // Insert correct answer
         correctAnswer = response.results[0].correct_answer;
+        const incorrectOne = response.results[0].incorrect_answers[0];
+        console.log(incorrectOne);
 
         // Update input id to correct answer 
         questionOne.setAttribute("id", correctAnswer);
@@ -76,3 +77,10 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
     })
 
 //Update correct answer varaible with correct answer from API
+
+// I want to assign answers to 4 labels
+// I want the correct answer to be in a random position
+// I want to grab an array of labels and use math.random to select a random element from that array
+// Update that element with a unique class and remove the default class
+// Insert the correct answer data into that element
+// Populate the 3 remaining elements with the incorrect answer data by looping through an array
