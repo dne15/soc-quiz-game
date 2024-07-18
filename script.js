@@ -42,11 +42,24 @@ function handleSubmit(e) {
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
 
+
+
 // grab list of questions from the api
 fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple")
     .then(function (response) {
         console.log(typeof response);
         return response.json();
     }).then(function (response) {
-        console.log(response);
+
+//Get question from Array into h3
+const quizQuestion = document.querySelector("h3")  
+
+//Isolate each question of API    
+        quizQuestion.innerText = response.results[0].question
     })
+
+    //Select first question in array
+    //Populate quesion screen with data from array 
+        
+        // Get possible answers from array into form (id, value, name, text)
+    //Update correct answer varaible with correct answer from API
