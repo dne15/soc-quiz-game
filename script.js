@@ -42,20 +42,22 @@ function handleSubmit(e) {
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
 
-// select the h3
-const quizQuestion = document.querySelector("h3");
-const allQuestions = document.querySelectorAll("input");
+const quizQuestion = document.querySelector("h3"); // select the h3
+const allQuestions = document.querySelectorAll("input"); // select array of inputs
 console.log(allQuestions);
-let correctAnswerInput = allQuestions[Math.floor(Math.random() * allQuestions.length)];
+const correctAnswerInput = allQuestions[Math.floor(Math.random() * 4)];
 console.log(correctAnswerInput);
 const questionOneLabel = correctAnswerInput.parentElement;
 const questionOneText = document.querySelector("span");
-console.log(questionOneLabel);
+const allIncorrectOptionInputs = document.querySelectorAll(".default");
+console.log(allIncorrectOptionInputs);
+// const incorrectAnswerInputOne = allQuestions[1];
+// const incorrectAnswerInputTwo = allQuestions[2];
+// const incorrectAnswerInputThree = allQuestions[3];
+
 
 // grab list of questions from the api
-fetch(
-  "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-)
+fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple")
   .then(function (response) {
     return response.json();
   })
