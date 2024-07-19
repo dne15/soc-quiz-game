@@ -64,6 +64,7 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
         quizQuestion.innerText = response.results[0].question;
         // Get possible answers from array into form (id, value, name, text)
         // Insert correct answer
+
         correctAnswer = response.results[0].correct_answer;
         const incorrectOne = response.results[0].incorrect_answers[0];
         console.log(incorrectOne);
@@ -71,7 +72,7 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=m
         // Update input id to correct answer 
         questionOne.setAttribute("id", correctAnswer);
         questionOne.setAttribute("value", correctAnswer);
-        questionOneText.innerHTML = (questionOne, correctAnswer);
+        questionOneText.innerHTML = correctAnswer;
         questionOneLabel.setAttribute("for", correctAnswer);
 
     })
