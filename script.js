@@ -3,6 +3,34 @@
 
 // If incorrect, fail screen shows
 
+function updateInput() {
+  quizQuestion.innerText = response.results[0].question;
+  // Get possible answers from array into form (id, value, name, text)
+  // Insert correct answer
+
+  correctAnswer = response.results[0].correct_answer;
+  // const incorrectOne = response.results[0].incorrect_answers[0];
+  // console.log(incorrectOne);
+
+  correctAnswerInput.setAttribute("id", correctAnswer); // Update input id to correct answer
+  correctAnswerInput.setAttribute("value", correctAnswer); // Update input value to correct answer
+  questionOneText.innerHTML = correctAnswer; // Update label text to correct answer
+  questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
+}
+
+fetch(
+  "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
+)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (response) {
+    console.log(response);
+    //Populate quesion screen with data from array
+    //Get question from Array into h3
+    updateInput;
+  });
+
 // grab quiz for to manipulate answer values
 const quizForm = document.querySelector(".answerForm");
 // hardcode answer to be paris
@@ -55,29 +83,7 @@ console.log(allIncorrectOptionInputs);
 // const incorrectAnswerInputTwo = allQuestions[2];
 // const incorrectAnswerInputThree = allQuestions[3];
 
-
 // grab list of questions from the api
-fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (response) {
-    console.log(response);
-    //Populate quesion screen with data from array
-    //Get question from Array into h3
-    quizQuestion.innerText = response.results[0].question;
-    // Get possible answers from array into form (id, value, name, text)
-    // Insert correct answer
-
-    correctAnswer = response.results[0].correct_answer;
-    const incorrectOne = response.results[0].incorrect_answers[0];
-    console.log(incorrectOne);
-
-    correctAnswerInput.setAttribute("id", correctAnswer); // Update input id to correct answer
-    correctAnswerInput.setAttribute("value", correctAnswer); // Update input value to correct answer
-    questionOneText.innerHTML = correctAnswer; // Update label text to correct answer
-    questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
-  });
 
 // const randomInput = allQuestions[Math.floor(Math.random() * allQuestions.length)];
 // console.log(randomInput);
