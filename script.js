@@ -23,8 +23,9 @@ const questionThreeText = document.querySelectorAll("span")[2];
 const incorrectAnswerInputThree = allQuestions[3];
 const questionFourLabel = incorrectAnswerInputThree.parentElement;
 const questionFourText = document.querySelectorAll("span")[3];
+const nextQuestion = document.querySelector(".nextQuestionButton");
 
-// fetch questions 
+// fetch questions
 fetch(
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
 )
@@ -35,37 +36,69 @@ fetch(
     console.log(response);
     //Populate quesion screen with data from array
     //Get question from Array into h3
-    quizQuestion.innerText = response.results[0].question;
-    // Get possible answers from array into form (id, value, name, text)
-    // Insert correct answer
 
-    correctAnswer = response.results[0].correct_answer;
-    console.log(correctAnswer);
+    function populateQuestions() {
+      for (i = 0; i < response.results.length; i++) {
+        quizQuestion.innerText = response.results[i].question;
+        // Get possible answers from array into form (id, value, name, text)
+        // Insert correct answer
 
-    // Correct Answer
-    correctAnswerInput.setAttribute("id", correctAnswer); // Update input id to correct answer
-    correctAnswerInput.setAttribute("value", correctAnswer); // Update input value to correct answer
-    questionOneText.innerHTML = correctAnswer; // Update label text to correct answer
-    questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
+        correctAnswer = response.results[i].correct_answer;
+        console.log(correctAnswer);
 
-    // Incorrect One
-    incorrectAnswerInputOne.setAttribute("id", response.results[0].incorrect_answers[0]);
-    incorrectAnswerInputOne.setAttribute("value", response.results[0].incorrect_answers[0]); // Update input value to correct answer
-    questionTwoText.innerHTML = response.results[0].incorrect_answers[0]; // Update label text to correct answer
-    questionTwoLabel.setAttribute("for", response.results[0].incorrect_answers[0]); // Update label for value to correct answer
+        // Correct Answer
+        correctAnswerInput.setAttribute("id", correctAnswer); // Update input id to correct answer
+        correctAnswerInput.setAttribute("value", correctAnswer); // Update input value to correct answer
+        questionOneText.innerHTML = correctAnswer; // Update label itext to correct answer
+        questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
 
-    // Incorrect Two
-    incorrectAnswerInputTwo.setAttribute("id", response.results[0].incorrect_answers[1]);
-    incorrectAnswerInputTwo.setAttribute("value", response.results[0].incorrect_answers[1]); // Update input value to correct answer
-    questionThreeText.innerHTML = response.results[0].incorrect_answers[1]; // Update label text to correct answer
-    questionThreeLabel.setAttribute("for", response.results[0].incorrect_answers[1]); // Update label for value to correct answer
+        // Incorrect One
+        incorrectAnswerInputOne.setAttribute(
+          "id",
+          response.results[i].incorrect_answers[0]
+        );
+        incorrectAnswerInputOne.setAttribute(
+          "value",
+          response.results[i].incorrect_answers[0]
+        ); // Update input value to correct answer
+        questionTwoText.innerHTML = response.results[i].incorrect_answers[0]; // Update label text to correct answer
+        questionTwoLabel.setAttribute(
+          "for",
+          response.results[i].incorrect_answers[0]
+        ); // Update label for value to correct answer
 
-    // Incorrect Three
-    incorrectAnswerInputThree.setAttribute("id", response.results[0].incorrect_answers[2]);
-    incorrectAnswerInputThree.setAttribute("value", response.results[0].incorrect_answers[2]); // Update input value to correct answer
-    questionFourText.innerHTML = response.results[0].incorrect_answers[2]; // Update label text to correct answer
-    questionFourLabel.setAttribute("for", response.results[0].incorrect_answers[2]); // Update label for value to correct answer
+        // Incorrect Two
+        incorrectAnswerInputTwo.setAttribute(
+          "id",
+          response.results[i].incorrect_answers[1]
+        );
+        incorrectAnswerInputTwo.setAttribute(
+          "value",
+          response.results[i].incorrect_answers[1]
+        ); // Update input value to correct answer
+        questionThreeText.innerHTML = response.results[i].incorrect_answers[1]; // Update label text to correct answer
+        questionThreeLabel.setAttribute(
+          "for",
+          response.results[i].incorrect_answers[1]
+        ); // Update label for value to correct answer
 
+        // Incorrect Three
+        incorrectAnswerInputThree.setAttribute(
+          "id",
+          response.results[i].incorrect_answers[2]
+        );
+        incorrectAnswerInputThree.setAttribute(
+          "value",
+          response.results[i].incorrect_answers[2]
+        ); // Update input value to correct answer
+        questionFourText.innerHTML = response.results[i].incorrect_answers[2]; // Update label text to correct answer
+        questionFourLabel.setAttribute(
+          "for",
+          response.results[i].incorrect_answers[2]
+        ); // Update label for value to correct answer
+      }
+    }
+    populateQuestions();
   });
 
 // grab quiz for to manipulate answer values
@@ -106,8 +139,12 @@ function handleSubmit(e) {
 }
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
+nextQuestion.addEventListener("click", handleNextQuestion);
 
-
+function handleNextQuestion() {
+  questionScreen.classList.remove("hide");
+  correctScreen.classList.add("hide");
+}
 
 // grab list of questions from the api
 
