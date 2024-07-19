@@ -3,20 +3,23 @@
 
 // If incorrect, fail screen shows
 
-function updateInput() {
-  quizQuestion.innerText = response.results[0].question;
-  // Get possible answers from array into form (id, value, name, text)
-  // Insert correct answer
+const quizQuestion = document.querySelector("h3"); // select the h3
+const allQuestions = document.querySelectorAll("input"); // select array of inputs
+console.log(allQuestions);
+const correctAnswerInput = allQuestions[0];
+console.log(correctAnswerInput);
+const questionOneLabel = correctAnswerInput.parentElement;
+const questionOneText = document.querySelectorAll("span")[0];
+const allIncorrectOptionInputs = document.querySelectorAll(".default");
+console.log(allIncorrectOptionInputs);
+const incorrectAnswerInputOne = allQuestions[1];
+const questionTwoLabel = incorrectAnswerInputOne.parentElement;
+const questionTwoText = document.querySelectorAll("span")[1];
 
-  correctAnswer = response.results[0].correct_answer;
-  // const incorrectOne = response.results[0].incorrect_answers[0];
-  // console.log(incorrectOne);
+const incorrectAnswerInputTwo = allQuestions[2];
+const incorrectAnswerInputThree = allQuestions[3];
 
-  correctAnswerInput.setAttribute("id", correctAnswer); // Update input id to correct answer
-  correctAnswerInput.setAttribute("value", correctAnswer); // Update input value to correct answer
-  questionOneText.innerHTML = correctAnswer; // Update label text to correct answer
-  questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
-}
+
 
 fetch(
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
@@ -28,7 +31,24 @@ fetch(
     console.log(response);
     //Populate quesion screen with data from array
     //Get question from Array into h3
-    updateInput;
+    quizQuestion.innerText = response.results[0].question;
+    // Get possible answers from array into form (id, value, name, text)
+    // Insert correct answer
+  
+    correctAnswer = response.results[0].correct_answer;
+    console.log(correctAnswer);
+    // const incorrectOne = response.results[0].incorrect_answers[0];
+    // console.log(incorrectOne);
+  
+    correctAnswerInput.setAttribute("id", correctAnswer); // Update input id to correct answer
+    correctAnswerInput.setAttribute("value", correctAnswer); // Update input value to correct answer
+    questionOneText.innerHTML = correctAnswer; // Update label text to correct answer
+    questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
+    
+    incorrectAnswerInputOne.setAttribute("id", response.results[0].incorrect_answers[0]);
+    incorrectAnswerInputOne.setAttribute("value", response.results[0].incorrect_answers[0]); // Update input value to correct answer
+    questionTwoText.innerHTML = response.results[0].incorrect_answers[0]; // Update label text to correct answer
+    questionTwoLabel.setAttribute("for", response.results[0].incorrect_answers[0]); // Update label for value to correct answer
   });
 
 // grab quiz for to manipulate answer values
@@ -70,18 +90,7 @@ function handleSubmit(e) {
 // add event listener
 quizForm.addEventListener("submit", handleSubmit);
 
-const quizQuestion = document.querySelector("h3"); // select the h3
-const allQuestions = document.querySelectorAll("input"); // select array of inputs
-console.log(allQuestions);
-const correctAnswerInput = allQuestions[Math.floor(Math.random() * 4)];
-console.log(correctAnswerInput);
-const questionOneLabel = correctAnswerInput.parentElement;
-const questionOneText = document.querySelector("span");
-const allIncorrectOptionInputs = document.querySelectorAll(".default");
-console.log(allIncorrectOptionInputs);
-// const incorrectAnswerInputOne = allQuestions[1];
-// const incorrectAnswerInputTwo = allQuestions[2];
-// const incorrectAnswerInputThree = allQuestions[3];
+
 
 // grab list of questions from the api
 
