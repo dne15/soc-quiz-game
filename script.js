@@ -45,13 +45,12 @@ quizForm.addEventListener("submit", handleSubmit);
 // select the h3
 const quizQuestion = document.querySelector("h3");
 const allQuestions = document.querySelectorAll("input");
-const correctAnswerInput = allQuestions[0];
+console.log(allQuestions);
+let correctAnswerInput = allQuestions[Math.floor(Math.random() * allQuestions.length)];
+console.log(correctAnswerInput);
 const questionOneLabel = correctAnswerInput.parentElement;
 const questionOneText = document.querySelector("span");
 console.log(questionOneLabel);
-
-// select the inputs
-// const
 
 // grab list of questions from the api
 fetch(
@@ -78,9 +77,8 @@ fetch(
     questionOneLabel.setAttribute("for", correctAnswer); // Update label for value to correct answer
   });
 
-const randomInput =
-  allQuestions[Math.floor(Math.random() * allQuestions.length)];
-console.log(randomInput);
+// const randomInput = allQuestions[Math.floor(Math.random() * allQuestions.length)];
+// console.log(randomInput);
 
 //Update correct answer varaible with correct answer from API
 
