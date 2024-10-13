@@ -1,1 +1,1 @@
-Feel free to delete this and start from scratch.
+Made with HTML, CSS and Vanilla JS 
